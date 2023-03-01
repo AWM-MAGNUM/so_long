@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "unistd.h": "c",
+        "__config": "c",
+        "so_long": "c"
+    }
+}

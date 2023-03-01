@@ -9,13 +9,13 @@ char	*ft_the_reader(int fd, char *unreal)
 	char		*buff;
 	int			count_bytes;
 
-buff = malloc((BUFFER_SIZE + 1) * sizeof(char));
+buff = malloc((1 + 1) * sizeof(char));
 	if (!buff)
 		return (NULL);
 count_bytes = 1;
 	while (ft_strchr(unreal, '\n') == NULL && count_bytes != 0)
 	{
-		count_bytes = read(fd, buff, BUFFER_SIZE);
+		count_bytes = read(fd, buff, 1);
 		if (count_bytes == -1)
 		{
 			free(buff);
@@ -28,19 +28,45 @@ count_bytes = 1;
 	return (unreal);
 }
 
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	size_t		i;
+	char		*str;
+
+	i = 0;
+	if (!s)
+		return (NULL);
+	if (start > ft_strlen(s))
+		return (ft_strdup(""));
+	if (len > ft_strlen(s + start))
+		return (ft_strdup(s + start));
+	str = malloc (sizeof(char) * (len + 1));
+	if (!str)
+		return (NULL);
+	while (s[start] != '\0' && i < len)
+	{
+		str[i] = s[start];
+		start++;
+		i++;
+	}
+	str[i] = '\0';
+	free((char *)s);
+	return (str);
+}
+
 char	*get_next_line(int fd)
 {
 	char		*line;
 	static char	*mini_line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0)
 		return (0);
 	mini_line = ft_the_reader(fd, mini_line);
 	if (mini_line == NULL)
 		return (NULL);
 	line = ft_extracteur_the_line(mini_line);
 	mini_line = ft_update_42(mini_line);
-	return (line);
+	return (ft_substr(line, 0, ft_strlen(line) - 1));
 }
 
 /*int	main(void)

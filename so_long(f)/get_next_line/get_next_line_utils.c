@@ -6,7 +6,7 @@
 /*   By: bel-kase <bel-kase@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 15:45:06 by bel-kase          #+#    #+#             */
-/*   Updated: 2023/02/26 20:06:04 by bel-kase         ###   ########.fr       */
+/*   Updated: 2023/02/28 01:14:47 by bel-kase         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,93 @@ char	*ft_strjoin(char *left_str, char *buff)
 	str[ft_strlen(left_str) + ft_strlen(buff)] = '\0';
 	free(left_str);
 	return (str);
+}
+// char	*ft_strjoin(char *s1, char *s2)
+// {
+// 	char	*new_mem;
+// 	size_t	s1_len;
+// 	size_t	s2_len;
+
+// 	new_mem = NULL;
+// 	if (s1 == NULL && s2 == NULL)
+// 		return (NULL);
+// 	else if (s1 == NULL)
+// 		return (ft_strdup(s2));
+// 	else if (s2 == NULL)
+// 		return (ft_strdup(s1));
+// 	s1_len = ft_strlen(s1);
+// 	s2_len = ft_strlen(s2);
+// 	new_mem = malloc(s1_len + s2_len);
+// 	if (!(new_mem))
+// 		return (NULL);
+// 	ft_strlcpy(new_mem, s1, s1_len + 1);
+// 	ft_strlcpy(new_mem + s1_len, s2, s2_len + 1);
+// 	free(s1);
+// 	free(s2);
+// 	return (new_mem);
+// }
+
+// char	*ft_strdup(char *s)
+// {
+// 	char	*new_mem;
+// 	int		size;
+// 	int		i;
+
+// 	new_mem = NULL;
+// 	size = ft_strlen(s);
+// 	i = 0;
+// 	new_mem = malloc(size + 1);
+// 	if (!(new_mem))
+// 		return (NULL);
+// 	while (s[i] && s[i] != '\n')
+// 	{
+// 		new_mem[i] = s[i];
+// 		i++;
+// 	}
+// 	new_mem[i] = '\0';
+// 	return (new_mem);
+// }
+
+char	*ft_strdup(const char *s1)
+{
+	char	*str;
+	size_t	i;
+
+	i = 0;
+	str = malloc (sizeof(char) * (ft_strlen((char *)s1) + 1));
+	if (!str)
+		return (NULL);
+	while (s1[i] != '\0')
+	{
+		str[i] = s1[i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
+}
+
+int	ft_strlcpy(char *dst, char *src, int len)
+{
+	int	src_len;
+	int	i;
+
+	src_len = 0;
+	i = 0;
+	while (src[src_len])
+		src_len++;
+	if (len == 0)
+	{
+		return (src_len);
+	}
+	while (i < len - 1 && *src && *src != '\n')
+	{
+		*dst = *src;
+		dst++;
+		src++;
+		i++;
+	}
+	*dst = '\0';
+	return (src_len);
 }
 
 char	*ft_extracteur_the_line(char *BIG_LINE)
