@@ -14,36 +14,42 @@ t_img img_xpm(void  *mlx)
     return(tty);
 }
 
-void    draw_map(t_game *g,int ligne,int colonne)
+void    draw_map(t_game *g,int ligne,int colonne, char current_char)
 {
-    char current_char = g->str_line[ligne * g->weight + colonne];
-
     if(current_char == '1')
-        mlx_put_image_to_window(g->mlx,g->win,g->wall,colonne * 64,ligne * 64);
+        mlx_put_image_to_window(g->mlx,g->win,g->img.wall_img,colonne * 50,ligne * 50);
     else if(current_char == 'C')
-        mlx_put_image_to_window(g->mlx,g->win,g->coin,colonne * 64 , ligne * 64);
+    {
+        mlx_put_image_to_window(g->mlx,g->win,g->img.ground_img,colonne * 50 , ligne * 50);
+        mlx_put_image_to_window(g->mlx,g->win,g->img.coin_img,colonne * 50 , ligne * 50);
+    }
     else if(current_char == 'P')
-        mlx_put_image_to_window(g->mlx,g->win,g->player,colonne *64 , ligne * 64);
+    {
+        mlx_put_image_to_window(g->mlx,g->win,g->img.ground_img,colonne * 50 , ligne * 50);
+        mlx_put_image_to_window(g->mlx,g->win,g->img.player_img,colonne * 50 , ligne * 50);
+    }
     else if(current_char == 'E')
-        mlx_put_image_to_window(g->mlx,g->win,g->exit,colonne *64 , ligne * 64);
+    {
+        mlx_put_image_to_window(g->mlx,g->win,g->img.ground_img,colonne * 50 , ligne * 50);
+        mlx_put_image_to_window(g->mlx,g->win,g->img.exit_img,colonne * 50 , ligne * 50);
+    }
     else
-        mlx_put_image_to_window(g->mlx,g->win,g->ground,colonne *64 , ligne * 64);
+        mlx_put_image_to_window(g->mlx,g->win,g->img.ground_img,colonne *50 , ligne * 50);
 }
 
 void    show_img(t_game *game)
 {
-    int verticale;
-    int horizontale;
-
-    horizontale = 0;
-    while(horizontale < game->height)
+    int i, x, y = 0;
+    i = 0;
+    while(i < game->height)
     {
-        verticale = 0;
-        while (verticale < game->weight)
+        x = 0;
+        while(x < game->weight)
         {
-            draw_map(game,verticale,horizontale);
-                verticale++;
+            draw_map(game, i, x, game->str_line[y]);
+            x++;
+            y++;
         }
-        horizontale++;
+        i++;
     }
 }

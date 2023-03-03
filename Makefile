@@ -1,4 +1,4 @@
-CFILES =  get_next_line/*.c read_map.c ft_strlen.c utils.c draw.c
+CFILES =  get_next_line/*.c so_long.c ft_strlen.c draw.c maps.c deplacer_a_ws_d.c
 
 NAME = so_long
 
@@ -6,7 +6,7 @@ CC = gcc
 
 RM = rm -rf
 
-CFLAGS = -Wall -Werror -Wextra -lmlx  -framework OpenGL -framework AppKit
+CFLAGS = -Wall -Werror -Wextra -fsanitize=address -lmlx  -framework OpenGL -framework AppKit
 
 all : $(NAME) 
 
