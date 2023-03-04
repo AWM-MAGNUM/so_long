@@ -1,4 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   draw.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bel-kase <bel-kase@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/04 23:57:40 by bel-kase          #+#    #+#             */
+/*   Updated: 2023/03/04 23:57:42 by bel-kase         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
+
 t_img img_xpm(void  *mlx)
 {
     t_img  tty;
@@ -37,19 +50,19 @@ void    draw_map(t_game *g,int ligne,int colonne, char current_char)
         mlx_put_image_to_window(g->mlx,g->win,g->img.ground_img,colonne *50 , ligne * 50);
 }
 
-void    show_img(t_game *game)
+void    pix_img(t_game *game)
 {
-    int i, x, y = 0;
-    i = 0;
-    while(i < game->height)
+    int ln, cl, y = 0;
+    ln = 0;
+    while(ln < game->height)
     {
-        x = 0;
-        while(x < game->weight)
+        cl = 0;
+        while(cl < game->weight)
         {
-            draw_map(game, i, x, game->str_line[y]);
-            x++;
+            draw_map(game, ln, cl, game->str_line[y]);
+            cl++;
             y++;
         }
-        i++;
+        ln++;
     }
 }

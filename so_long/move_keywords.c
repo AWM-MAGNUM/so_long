@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   move_keywords.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bel-kase <bel-kase@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/04 23:58:25 by bel-kase          #+#    #+#             */
+/*   Updated: 2023/03/04 23:58:27 by bel-kase         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 int	clear_game(t_game *game)
@@ -22,7 +34,7 @@ void	move_player_up(t_game *g)
 	{
 		g->str_line[i] = '0';
 		g->str_line[i - g->weight] = 'P';
-		show_img(g);
+		pix_img(g);
 	}
 }
 
@@ -41,7 +53,7 @@ void move_player_down(t_game *g)
 	{
 		g->str_line[i] = '0';
 		g->str_line[i + g->weight] = 'P';
-		show_img(g);
+		pix_img(g);
 	}
 }
 
@@ -60,7 +72,7 @@ void move_player_right(t_game *g)
     {
         g->str_line[i] = '0';
         g->str_line[i + 1] = 'P';
-        show_img(g);
+        pix_img(g);
     }
 }
 
@@ -79,7 +91,7 @@ void move_player_left(t_game *g)
     {
         g->str_line[i] = '0';
         g->str_line[i - 1] = 'P';
-        show_img(g);
+        pix_img(g);
     }
 }
   

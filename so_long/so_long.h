@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bel-kase <bel-kase@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/04 23:58:53 by bel-kase          #+#    #+#             */
+/*   Updated: 2023/03/04 23:58:55 by bel-kase         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 #define SO_LONG_H
 
@@ -13,11 +25,17 @@
 #define X_EVENT_KEY_PRESS       2
 #define X_EVENT_KEY_RELEASE     3
 
-# define X_EVENT_KEY_EXIT		17
+# define KEY_ESC                53
 # define KEY_W			        13
 # define KEY_A			        0
 # define KEY_S			        1
 # define KEY_D			        2
+
+# define KEY_XK_Up			    126
+# define KEY_XK_down			123
+# define KEY_XK_left	        125
+# define KEY_XK_right			124
+
 
 typedef struct s_img {
     void    *wall_img;
@@ -30,8 +48,10 @@ typedef struct s_img {
 typedef struct s_game
 {
     char    *str_line;
+    char    **map_f;
     int     height;
     int     weight;
+    int     out;
     int     *g;
     void    *mlx;
     t_img   img;
@@ -40,6 +60,7 @@ typedef struct s_game
     char    *wall;
     char    *ground;
     char    *coin;
+    int     dooooor;
     char    *player;
     char    *exit;
     int     x;
@@ -49,6 +70,8 @@ typedef struct s_game
     int     walk_cnt;
     int     verticale;
     int     horizontale;
+    int		xpos;
+	int		ypos;
    
 
 }  t_game;
@@ -66,7 +89,7 @@ void	game_init(t_game *g, char *carte);
 void    print_err(char *message);
 
 void    draw_map(t_game *g,int ligne,int colonne, char current_char);
-void    show_img(t_game *game);
+void    pix_img(t_game *game);
 t_img   img_xpm(void  *mlx);
 
 
@@ -78,6 +101,11 @@ void move_player_right(t_game *g);
 int to_play(int keywords_id ,t_game *game);
 
 int	exit_game(t_game *game);
+
+void map_2d(t_game *game);
+
+void    floodFill(int x, int y ,int height ,int weight, t_game *game);
+
 
 
 #endif

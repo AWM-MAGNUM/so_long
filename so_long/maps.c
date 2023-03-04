@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   maps.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bel-kase <bel-kase@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/04 23:58:10 by bel-kase          #+#    #+#             */
+/*   Updated: 2023/03/04 23:58:20 by bel-kase         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 void    map_read(char *carte, t_game *game)
@@ -54,6 +66,7 @@ void    check_symboles(t_game *game)
 {
     int sym_p = 0;
     int sym_e = 0;
+    game->dooooor = 0;
 
     game->col_total = 0;
     game->col_count = 0;
@@ -66,7 +79,10 @@ void    check_symboles(t_game *game)
         else if(*p == 'C')
             game->col_total++;
         else if(*p == 'E')
+        {
             sym_e++;
+            game->dooooor++;
+        }
         p++;
     }
     if(game->col_total == 0)
@@ -83,4 +99,11 @@ void    validate_carte(t_game *game)
         print_err("La carte doit être rectangulaire");
     wall_surround(game);
     check_symboles(game);
+    map_2d(game);
+    floodFill(game->xpos, game->ypos , game->height, game->weight, game);
+    if (game->col_total > 0 || game->dooooor > 0)
+    {
+        write(2, "Error \n", 8);
+        exit(1);
+    }
 }

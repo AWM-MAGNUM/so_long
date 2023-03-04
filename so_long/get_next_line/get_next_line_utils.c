@@ -6,13 +6,13 @@
 /*   By: bel-kase <bel-kase@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 15:45:06 by bel-kase          #+#    #+#             */
-/*   Updated: 2023/03/02 04:17:48 by bel-kase         ###   ########.fr       */
+/*   Updated: 2023/03/04 18:52:58 by bel-kase         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	ft_strlenn(char *s)
+size_t	ft_strlen(const char *s)
 {
 	int			i;
 
@@ -69,51 +69,6 @@ char	*ft_strjoin(char *left_str, char *buff)
 	free(left_str);
 	return (str);
 }
-// char	*ft_strjoin(char *s1, char *s2)
-// {
-// 	char	*new_mem;
-// 	size_t	s1_len;
-// 	size_t	s2_len;
-
-// 	new_mem = NULL;
-// 	if (s1 == NULL && s2 == NULL)
-// 		return (NULL);
-// 	else if (s1 == NULL)
-// 		return (ft_strdup(s2));
-// 	else if (s2 == NULL)
-// 		return (ft_strdup(s1));
-// 	s1_len = ft_strlen(s1);
-// 	s2_len = ft_strlen(s2);
-// 	new_mem = malloc(s1_len + s2_len);
-// 	if (!(new_mem))
-// 		return (NULL);
-// 	ft_strlcpy(new_mem, s1, s1_len + 1);
-// 	ft_strlcpy(new_mem + s1_len, s2, s2_len + 1);
-// 	free(s1);
-// 	free(s2);
-// 	return (new_mem);
-// }
-
-// char	*ft_strdup(char *s)
-// {
-// 	char	*new_mem;
-// 	int		size;
-// 	int		i;
-
-// 	new_mem = NULL;
-// 	size = ft_strlen(s);
-// 	i = 0;
-// 	new_mem = malloc(size + 1);
-// 	if (!(new_mem))
-// 		return (NULL);
-// 	while (s[i] && s[i] != '\n')
-// 	{
-// 		new_mem[i] = s[i];
-// 		i++;
-// 	}
-// 	new_mem[i] = '\0';
-// 	return (new_mem);
-// }
 
 char	*ft_strdup(const char *s1)
 {
