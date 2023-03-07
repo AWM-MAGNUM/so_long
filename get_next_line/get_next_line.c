@@ -6,13 +6,15 @@
 /*   By: bel-kase <bel-kase@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 21:44:59 by bel-kase          #+#    #+#             */
-/*   Updated: 2023/03/03 21:45:00 by bel-kase         ###   ########.fr       */
+/*   Updated: 2023/03/07 00:48:24 by bel-kase         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <unistd.h>
 #include <fcntl.h>
+#include <stdio.h>
+#include <string.h>
 
 char	*ft_the_reader(int fd, char *unreal)
 {
@@ -93,13 +95,13 @@ char	*get_next_line(int fd)
 	while (i < 7)
 	{
 		line = get_next_line(fd1);
-		printf("line [%02d]: %s", i, line);
+		ft_printf("line [%02d]: %s", i, line);
 		free(line);
 		line = get_next_line(fd2);
-		printf("line [%02d]: %s", i, line);
+		ft_printf("line [%02d]: %s", i, line);
 		free(line);
 		line = get_next_line(fd3);
-		printf("line [%02d]: %s", i, line);
+		ft_printf("line [%02d]: %s", i, line);
 		free(line);
 		i++;
 	}
