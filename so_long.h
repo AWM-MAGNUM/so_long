@@ -6,15 +6,13 @@
 /*   By: bel-kase <bel-kase@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 23:58:53 by bel-kase          #+#    #+#             */
-/*   Updated: 2023/03/07 01:14:39 by bel-kase         ###   ########.fr       */
+/*   Updated: 2023/03/08 00:47:31 by bel-kase         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "./get_next_line/get_next_line.h"
-# include "./ft_printf/ft_printf.h"
 # include "mlx.h"
 # include <fcntl.h>
 # include <stdbool.h>
@@ -22,9 +20,9 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+# include <stdarg.h>
 
 # define X_EVENT_KEY_PRESS 2
-# define X_EVENT_KEY_RELEASE 5
 
 # define KEY_ESC 53
 # define KEY_X 0
@@ -76,7 +74,7 @@ typedef struct s_game
 	int		col_count;
 	int		col_total;
 	int		col_to_m2;
-	int		walk_cnt;
+	int		step;
 	int		verticale;
 	int		horizontale;
 	int		xpos;
@@ -88,6 +86,7 @@ typedef struct s_game
 
 char		*get_next_line(int fd);
 size_t		ft_strlen(const char *s);
+char		*ft_strchr(char *s, int c);
 int			ft_strlcpy(char *dst, char *src, int len);
 char		*ft_strjoin(char *s1, char *s2);
 char		*ft_strdup(const char *s1);
@@ -112,5 +111,11 @@ int			quit_game(t_game *game);
 
 void		map_2d(t_game *game);
 void		floodfill(int x, int y, t_game *data);
+
+int			ft_putchar(char c);
+int			ft_putstr(char *str);
+int			ft_putnbr(long long nb);
+static int		ft_walk(va_list ptr, char str) __attribute__((used));
+int			ft_printf(const char *str, ...);
 
 #endif

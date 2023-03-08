@@ -6,11 +6,12 @@
 /*   By: bel-kase <bel-kase@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 03:25:29 by bel-kase          #+#    #+#             */
-/*   Updated: 2023/03/05 03:42:10 by bel-kase         ###   ########.fr       */
+/*   Updated: 2023/03/08 00:26:27 by bel-kase         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include "so_long.h"
 
 size_t	ft_strlen(const char *s)
 {

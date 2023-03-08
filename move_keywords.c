@@ -6,7 +6,7 @@
 /*   By: bel-kase <bel-kase@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 23:58:25 by bel-kase          #+#    #+#             */
-/*   Updated: 2023/03/07 01:05:50 by bel-kase         ###   ########.fr       */
+/*   Updated: 2023/03/08 00:42:05 by bel-kase         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	steps_win(t_game *game)
 {
-	game->walk_cnt++;
+	game->step++;
 	ft_printf("%s %d%s\n", "Congratulations! You have won in "\
-		, game->walk_cnt, " steps.");
+		, game->step, " steps.");
 	exit(0);
 }
 
@@ -36,6 +36,8 @@ void	move_player_up(t_game *g)
 	{
 		g->str_string[i] = '0';
 		g->str_string[i - g->weight] = 'P';
+		g->step++;
+		ft_printf("%d\n", g->step);
 		pix_img(g);
 	}
 }
@@ -56,6 +58,8 @@ void	move_player_down(t_game *g)
 	{
 		g->str_string[i] = '0';
 		g->str_string[i + g->weight] = 'P';
+		g->step++;
+		ft_printf("%d\n", g->step);
 		pix_img(g);
 	}
 }
@@ -75,6 +79,8 @@ void	move_player_right(t_game *g)
 	{
 		g->str_string[i] = '0';
 		g->str_string[i + 1] = 'P';
+		g->step++;
+		ft_printf("%d\n", g->step);
 		pix_img(g);
 	}
 }
@@ -94,6 +100,8 @@ void	move_player_left(t_game *g)
 	{
 		g->str_string[i] = '0';
 		g->str_string[i - 1] = 'P';
+		g->step++;
+		ft_printf("%d\n", g->step);
 		pix_img(g);
 	}
 }
