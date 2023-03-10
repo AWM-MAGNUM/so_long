@@ -6,11 +6,11 @@
 /*   By: bel-kase <bel-kase@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 00:12:52 by bel-kase          #+#    #+#             */
-/*   Updated: 2023/03/10 01:39:10 by bel-kase         ###   ########.fr       */
+/*   Updated: 2023/03/10 04:06:06 by bel-kase         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 int	ft_putchar(char c)
 {

@@ -6,11 +6,11 @@
 /*   By: bel-kase <bel-kase@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 23:58:25 by bel-kase          #+#    #+#             */
-/*   Updated: 2023/03/08 20:52:48 by bel-kase         ###   ########.fr       */
+/*   Updated: 2023/03/10 04:06:23 by bel-kase         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 int	steps_win(t_game *game)
 {

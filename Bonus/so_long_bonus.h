@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bel-kase <bel-kase@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 23:58:53 by bel-kase          #+#    #+#             */
-/*   Updated: 2023/03/10 04:03:25 by bel-kase         ###   ########.fr       */
+/*   Updated: 2023/03/10 04:05:15 by bel-kase         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # include "mlx.h"
 # include <fcntl.h>
@@ -136,4 +136,5 @@ int			ft_putnbr(long long nb);
 static int	ft_walk(va_list ptr, char str) __attribute__((used));
 int			ft_printf(const char *str, ...);
 
+void		coin_b(t_game *game);
 #endif

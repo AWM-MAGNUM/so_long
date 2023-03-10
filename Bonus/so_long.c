@@ -6,11 +6,11 @@
 /*   By: bel-kase <bel-kase@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 23:58:41 by bel-kase          #+#    #+#             */
-/*   Updated: 2023/03/10 04:10:36 by bel-kase         ###   ########.fr       */
+/*   Updated: 2023/03/10 04:10:09 by bel-kase         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	print_err(char *message)
 {
@@ -72,8 +72,8 @@ int	main(int argc, char **argv)
 		}
 	}
 	game = malloc(sizeof(t_game));
-	str = ft_itoa(game->step);
 	config_game(game, argv[1]);
+	str = ft_itoa(game->step);
 	mlx_hook(game->win, X_EVENT_KEY_PRESS, 0, &to_play, game);
 	mlx_hook(game->win, 17, 0, quit_game, game);
 	mlx_string_put(game->mlx, game->win, 10, 10, 0xFFD700, str);

@@ -6,11 +6,11 @@
 /*   By: bel-kase <bel-kase@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 00:03:02 by bel-kase          #+#    #+#             */
-/*   Updated: 2023/03/08 20:54:12 by bel-kase         ###   ########.fr       */
+/*   Updated: 2023/03/10 04:06:10 by bel-kase         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 int	ft_strcmp(char *s1, char *s2)
 {
